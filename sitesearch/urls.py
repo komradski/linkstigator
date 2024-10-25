@@ -11,7 +11,9 @@ urlpatterns = [
 
     # ex: /polls/
     path("", views.index, name="index"),
-    path("search", views.search, name="search"),  
+    # path("search", views.search, name="search"),  
+    
+    
     # path("sitesearch/", SiteSearchView.as_view()),
     # path("about/", SiteSearchView.as_view(template_name="about.html")),    
     

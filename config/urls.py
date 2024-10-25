@@ -18,16 +18,23 @@ from django.contrib import admin
 from django.urls import path, include
 # from django.views.generic import TemplateView
 
-from sitesearch.views import GroupLinksPublicAPIView
+# from sitesearch.views import GroupLinksPublicAPIView
+# from sitemaps.views import sitemap
+from . import views
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('admin/', admin.site.urls),    
+    path("", views.index, name="index"),    
+    path("sitesearch/", include("sitesearch.urls")), 
+]
+
+
+
+    # path('/', include('')),
 
     
     # path("", name="index"),
-    path("sitesearch/", include("sitesearch.urls")), 
     # path('auth/',include('djoser.urls')),
     # path('auth/',include('djoser.urls.authtoken')),
     # path('api/',include('config.urls')),
-    # path('r/<str:unique_string>/', GroupLinksPublicAPIView.as_view(), name='public-link-group')
-]
+    # path('r/<str:unique_string>/', GroupLinksPublicAPIView.as_view(), name='public-link-group')    

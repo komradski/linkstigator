@@ -2,14 +2,12 @@
 
 {% block content %}
 
-SITESEARCH INDEX
-
 <script type="text/javascript">
     function doPopAll(PopAll) {
         var pop = document.getElementById("PopAll");
         
         for (j = 1; j <= 100; j++) {
-            if (j < 10) { j = "0" + j.toString(); }
+            if (j < 10) { j = "" + j.toString(); }
             else { j = j.toString(); }
             console.log(j)
             item = document.getElementById("Search" + j);
@@ -21,7 +19,7 @@ SITESEARCH INDEX
         var pop = document.getElementById("ClearAll");
         var popitem = document.getElementById("PopAll");
         for (j = 1; j <= 100; j++) {
-            if (j < 10) { j = "0" + j.toString(); }
+            if (j < 10) { j = "" + j.toString(); }
             else { j = j.toString(); }
             console.log(j)
             item = document.getElementById("PopAll")
@@ -35,40 +33,71 @@ SITESEARCH INDEX
     }
 
 
-function doSearch(Url01, Search01){
-    window.open(Url01 + Search01, 'Search01window');
+function doSearch(Url, Search){
+    window.open(Url + Search, 'Search01window');
 }        
-function doall(all){
+
+
+
+{% if search_links %}     
+function doall(all){   
+{% for link in search_links.all %}
+    window.open("{{ link.url }}" + all, "{{ link.id }}");
+{% endfor %} 
+}
+{% endif %}
+
+
+
+
+{% comment %} function doallOld(all){
     window.open("https://thegrayzone.com/?s=" + all, "Search01window");
     window.open('https://www.rt.com/search?q=' + all, 'Search02window');
     window.open('https://sputnikglobe.com/search/?query=' + all, 'Search03window');
     window.open('https://www.telesurenglish.net/?s=' + all, 'Search04window');
     window.open('https://www.saba.ye/en/search.htm?q=' + all, 'Search05window');
     window.open('https://geopoliticaleconomy.com/?s=' + all, 'Search06window');
-}
+} {% endcomment %}
 
 </script>
 
-<form class="row m-1" onsubmit="doPopAll(this.PopAll.value); return false;">    
+<div class="container">
+    <form class="row m-1" onsubmit="doPopAll(this.PopAll.value); return false;">    
+    
+        <div class="col-4">
+            <input type="search" class="form-control" id="PopAll" name="PopAll" placeholder="Search Terms" aria-label="Search Terms" aria-describedby="PopAllButton">
+        </div>
+        <div class="col-2">
+            <button class="btn btn-secondary" type="submit" id="PopAllButton" style="width:240px">Populate All</button>
+        </div>    
+    </form>
 
-    <div class="col-4">
-        <input type="search" class="form-control" id="PopAll" name="PopAll" placeholder="Search Terms" aria-label="Search Terms" aria-describedby="PopAllButton">
-    </div>
-    <div class="col-2">
-        <button class="btn btn-secondary" type="submit" id="PopAllButton" style="width:240px">Populate All</button>
-    </div>    
-</form>
+    {% if search_links %}        
+        {% for link in search_links.all %}
 
-<form class="row m-1" onsubmit="doSearch(this.UrlString.value, this.Search01.value); return false;">
-    <div class="col-4">
-        <input type="text" class="form-control" id="Search01" name="Search01" placeholder="" aria-label="" aria-describedby="SearchButton">
-        <input type="hidden" id="UrlSring" name="UrlString" value="https://thegrayzone.com/?s=">
-    </div>
-    <div class="col-2">
-        <button class="btn btn-outline-secondary" type="submit" id="SearchButton" style="width:240px">The Grayzone</button> 
-    </div>
-</form>
+            <form class="row m-1" onsubmit="doSearch(this.UrlString.value, this.Search{{ link.id }}.value); return false;">
+                <div class="col-4">
+                    <input type="text" class="form-control" id="Search{{ link.id }}" name="Search{{ link.id }}" placeholder="" aria-label="" aria-describedby="SearchButton">
+                    <input type="hidden" id="UrlSring" name="UrlString" value="{{ link.url }}">
+                </div>
+                <div class="col-2">
+                    <button class="btn btn-outline-secondary" type="submit" id="SearchButton" style="width:340px">{{ link.title }}</button> 
+                </div>
+            </form>
+        
+        {% endfor %} 
+        
+    {% else %}
+        <p>Nothing available.</p>
+    {% endif %}
 
-
-
-{% endblock %}
+    <form class="row m-1" onsubmit="doall(this.all.value); return false;">
+        <div class="col-4">
+            <input type="text" class="form-control" id="Search99" name="all" placeholder="" aria-label="" aria-describedby="SearchAllButton">        
+        </div>
+        <div class="col-2">                          
+            <button class="btn btn-primary" type="submit" id="SearchAllButton" style="width:240px">Submit All</button>                            
+        </div>
+    </form>       
+</div>
+{% endblock content %}
