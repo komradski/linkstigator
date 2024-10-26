@@ -21,9 +21,7 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item">
-
           <a class="nav-link active" aria-current="page" href="{% url 'index' %}">Home</a>
-          {% comment %} <a href="{% url 'post:index' %}">Index</a> {% endcomment %}
         </li>
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="{% url 'sitesearch:index' %}">Site Search</a>
@@ -41,6 +39,9 @@
           <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Link Unroller</a>
           {% comment %} <a class="nav-link active" aria-current="page" href="{% url 'dorksearch:index' %}">Site Search</a> {% endcomment %}
         </li>
+        {% comment %} <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="{% url %}admin/">Admin</a>
+        </li> {% endcomment %}
       </ul>
     </div>
   </div>

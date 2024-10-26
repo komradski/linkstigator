@@ -1,5 +1,7 @@
 # README.MD
 
+A project of tools for open source media analysis and research.
+
 ## Python Libraries
 
 - [Django Documentation](https://docs.djangoproject.com/en/5.1/)
