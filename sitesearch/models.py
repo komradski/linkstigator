@@ -27,3 +27,14 @@ class Link(models.Model):
 
     def __str__(self):
         return self.title
+    
+    
+class Link(models.Model):
+    title = models.CharField(max_length=255)
+    url = models.URLField(unique=True)
+    url_suffix = models.CharField(max_length=50, null=True, blank=True)
+    group = models.ForeignKey(LinkGroup, on_delete=models.CASCADE)
+    creator = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.title

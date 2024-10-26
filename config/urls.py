@@ -23,7 +23,8 @@ from django.urls import path, include
 from . import views
 
 urlpatterns = [
-    path('admin/', admin.site.urls),    
+    path('admin/', admin.site.urls),  
+    path("account/", include("django.contrib.auth.urls")),  # new  
     path("", views.index, name="index"),    
     path("sitesearch/", include("sitesearch.urls")), 
 ]
