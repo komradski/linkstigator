@@ -48,19 +48,11 @@ function doall(all){
 {% endif %}
 
 
-
-
-{% comment %} function doallOld(all){
-    window.open("https://thegrayzone.com/?s=" + all, "Search01window");
-    window.open('https://www.rt.com/search?q=' + all, 'Search02window');
-    window.open('https://sputnikglobe.com/search/?query=' + all, 'Search03window');
-    window.open('https://www.telesurenglish.net/?s=' + all, 'Search04window');
-    window.open('https://www.saba.ye/en/search.htm?q=' + all, 'Search05window');
-    window.open('https://geopoliticaleconomy.com/?s=' + all, 'Search06window');
-} {% endcomment %}
-
 </script>
-
+<div class="row m-5" >
+    <div class="col-2">
+    </div>
+</div>
 <div class="container">
     <form class="row m-1" onsubmit="doPopAll(this.PopAll.value); return false;">    
     
@@ -68,7 +60,7 @@ function doall(all){
             <input type="search" class="form-control" id="PopAll" name="PopAll" placeholder="Search Terms" aria-label="Search Terms" aria-describedby="PopAllButton">
         </div>
         <div class="col-2">
-            <button class="btn btn-secondary" type="submit" id="PopAllButton" style="width:240px">Populate All</button>
+            <button class="btn btn-secondary" type="submit" id="PopAllButton" style="width:340px">Populate All</button>
         </div>    
     </form>
 
@@ -96,7 +88,7 @@ function doall(all){
             <input type="text" class="form-control" id="Search99" name="all" placeholder="" aria-label="" aria-describedby="SearchAllButton">        
         </div>
         <div class="col-2">                          
-            <button class="btn btn-primary" type="submit" id="SearchAllButton" style="width:240px">Submit All</button>                            
+            <button class="btn btn-primary" type="submit" id="SearchAllButton" style="width:340px">Submit All</button>                            
         </div>
     </form>       
 </div>
