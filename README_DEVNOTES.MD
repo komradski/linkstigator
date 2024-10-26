@@ -7,7 +7,7 @@
   - Windows/Powershell: `venv\Scripts\activate.ps1`
   - Linux/Bash: `. venv/bin/activate`
 - Install Django: `python -m pip install Django`
-- Create Project: `django-admin startproject appsmain appsproject`
+- Create Project: `django-admin startproject config linkstigator`
 
 ### Run your Server
 
@@ -15,7 +15,7 @@
 
 ### Create the site-search app
 
-- `python manage.py startapp sitesearch`
+- `python manage.py startapp sitesearch`-
 
 ## Examples
 

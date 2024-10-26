@@ -2,7 +2,30 @@
 
 A project of tools for open source media analysis and research.
 
-## Python Libraries
+## How To's
+
+## Initial Setup
+
+- clone repository
+- create virtualenv: `python3 -m virtualenv venv`
+- activate virtualenv: `. venv/bin/activate`
+- install requirements: `pip install -r requirements.txt`
+- launch/preview the django project: `python manage.py runserver`
+
+### Django Migrations
+
+After data model changes in models.py, you must run the three step migration process for them to become active.
+
+- makemigrations:
+  - `python manage.py makemigrations sitesearch`
+  - take note of the migration number (ex. 0001, 0002, 0003, etc.)
+- sqlmigrate:
+  - using the migration number you took note of above
+  - `python manage.py sqlmigrate sitesearch 0001`  
+- migrate:
+  - `python manage.py migrate`
+
+## Python Libraries Utilized or Planned
 
 - [Django Documentation](https://docs.djangoproject.com/en/5.1/)
 - [Django REST framework](https://www.django-rest-framework.org/)
@@ -11,9 +34,35 @@ A project of tools for open source media analysis and research.
 
 ## Apps
 
-### Site Search
+## News Site & Additional Link Directory
 
-### Dork Search
+### Model
+
+- Organization
+- Links organized by type:
+  - Choices: website, youtube, rumble, odysee, socials, etc.
+
+## News Site Search
+
+- search multiple news sites simultaneously for the same search terms
+- limits:
+  - captcha protected search
+
+### Model
+
+- Links from News site search
+- Search will add
+  - additional search string
+  - keyword search terms
+
+## Dork Search
+
+- Search Engine Advanced Search / User Interface for Dork Searches
+
+- Search Candidates:
+  - Google
+  - Yandex
+  - Bing
 
 ### Article Meta Unroller
 
@@ -28,10 +77,3 @@ A project of tools for open source media analysis and research.
 - Parent > Child Relationships between article and citation links
   - Article and Citation Links
 
-## How To's
-
-### Django Migrations
-
-- makemigrations: `python manage.py makemigrations sitesearch`
-- sqlmigrate: `python manage.py sqlmigrate sitesearch 0001`
-- migrate: `python manage.py migrate`
