@@ -25,12 +25,22 @@ After data model changes in models.py, you must run the three step migration pro
 - migrate:
   - `python manage.py migrate`
 
+### Reset App Database
+
+- `python manage.py reset appname`
+
+### Admin Page Customization
+
+- [realpython.com | Customize the Django Admin With Python](https://realpython.com/customize-django-admin-python/)
+
+
 ## Python Libraries Utilized or Planned
 
 - [Django Documentation](https://docs.djangoproject.com/en/5.1/)
 - [Django REST framework](https://www.django-rest-framework.org/)
 - [Djoser Documentation | Web Token Authenticatin](https://djoser.readthedocs.io/en/latest/getting_started.html)
 - [Django Bootstrap5](https://django-bootstrap5.readthedocs.io/en/latest/quickstart.html)
+- [Django-Countries](https://pypi.org/project/django-countries/)
 
 ## Apps
 
@@ -41,6 +51,11 @@ After data model changes in models.py, you must run the three step migration pro
 - Organization
 - Links organized by type:
   - Choices: website, youtube, rumble, odysee, socials, etc.
+
+#### Meta (Models)
+
+- [Model field reference](https://docs.djangoproject.com/en/5.1/ref/models/fields/)
+- [Meta: unique_together](https://docs.djangoproject.com/en/dev/ref/models/options/#unique-together)
 
 ## News Site Search
 

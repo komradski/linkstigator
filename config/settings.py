@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'sitesearch',
+    'modeltest',    
     'account',
     'rest_framework',
     'rest_framework.authtoken',
