@@ -40,7 +40,11 @@ After data model changes in models.py, you must run the three step migration pro
 - [Django REST framework](https://www.django-rest-framework.org/)
 - [Djoser Documentation | Web Token Authenticatin](https://djoser.readthedocs.io/en/latest/getting_started.html)
 - [Django Bootstrap5](https://django-bootstrap5.readthedocs.io/en/latest/quickstart.html)
-- [Django-Countries](https://pypi.org/project/django-countries/)
+- [Django Packages](https://djangopackages.org)
+  - [Django-Countries](https://pypi.org/project/django-countries/)
+  - [Django-Cities](https://github.com/coderholic/django-cities)
+  - [Django-Cities-Light](https://github.com/yourlabs/django-cities-light)
+
 
 ## Apps
 
