@@ -10,6 +10,7 @@ Django==4.2.16
 django-bootstrap-v5==1.0.11
 django-bootstrap5==24.3
 django-cors-headers==4.5.0
+django-countries==7.6.1
 django-filter==24.3
 django-templated-mail==1.1.1
 djangorestframework==3.15.2
@@ -29,5 +30,6 @@ social-auth-app-django==5.4.2
 social-auth-core==4.5.4
 soupsieve==2.6
 sqlparse==0.5.1
+typing_extensions==4.12.2
 urllib3==2.2.3
 virtualenv==20.27.0
