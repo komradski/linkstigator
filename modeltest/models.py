@@ -28,6 +28,9 @@ class Organization(models.Model):
     def __str__(self):
         return self.name
     
+    class Meta:
+        ordering = ("name", "type")
+    
     
     
 # class Person(models.Model):
@@ -113,6 +116,8 @@ class Link(models.Model):
     def __str__(self):
         return self.organization.name + ': ' + self.type + ': ' + self.url
     
+    class Meta:
+        ordering = ("organization", "url")
     
     
 # class Link(models.Model):

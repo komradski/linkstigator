@@ -22,7 +22,8 @@ class LanguageAdmin(admin.ModelAdmin):
 @admin.register(Organization)
 class OrganizationAdmin(admin.ModelAdmin):
     list_display = ("name", "type", "alignment", "country", "link_count", "view_org_links")
-    list_filter = ("name", "type", "alignment")    
+    list_filter = ("name", "type", "alignment")  
+    search_fields = ("name__contains", )  
             
     class Meta:
         ordering = ("name")    
@@ -47,8 +48,9 @@ class OrganizationAdmin(admin.ModelAdmin):
 
 @admin.register(Link)
 class LinkAdmin(admin.ModelAdmin):
-    list_display = ("organization", "type", "url")
-    list_filter = ("organization", "type")    
+    list_display = ("type", "url", "organization")
+    list_filter = ("organization", "type")
+    search_fields = ("url__contains", ) 
 
     class Meta:
         ordering = ("organization", "type")    
