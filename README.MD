@@ -58,7 +58,8 @@ After data model changes in models.py, you must run the three step migration pro
 
 ### Graph DB engines
 - [Neo4j](https://neo4j.com/)
-  - [Neo4j Tutorial](https://www.datacamp.com/tutorial/neo4j-tutorial)
+  - [Neo4j Python Tutorial](https://www.datacamp.com/tutorial/neo4j-tutorial)
+  - [Neo4j for Django Developers](https://neo4j.com/developer-blog/neo4j-for-django-developers/)
 - [CogDB](https://cogdb.io/)
 
 
