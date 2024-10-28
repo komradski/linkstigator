@@ -2,13 +2,18 @@
 # from modeltest import views as v
 # from bs4 import BeautifulSoup
 import bs4
-# import requests
-from urllib.request import urlopen as request
+import requests
+# from urllib.request import urlopen as request
 import re
 from rich import inspect, print as rprint
 
-from bs4 import BeautifulSoup as soup
+from bs4 import BeautifulSoup
 from bs4 import SoupStrainer as strainer
+import ua_generator
+
+ua = ua_generator.generate()
+
+
 
 url = 'https://electronicintifada.net/blogs/maureen-clare-murphy/uneasy-equilibrium-after-israel-strikes-iran'
 
@@ -16,18 +21,103 @@ link = 'https://apnews.com/article/florida-orlando-suitcase-death-guilty-verdict
 
 thing = '<div class="RichTextStoryBody RichTextBody">'
 
-
-client = request(url)
-page_html = client.read()
-client.close()
+# client = request(url)
+# page_html = client.read()
+# client.close()
 
 only_item_cells = strainer("div", attrs={"class": "item-cell"})
-page_soup = soup(page_html, 'html.parser', parse_only=only_item_cells)
-page_soup_list = list(page_soup)
+
+class GetSoup:
+    def __init__(self, url):
+        self.url = url
+        # self.response = self.make_request()
+    
+    def make_request(self):
+        ua = ua_generator.generate()
+        try:     
+            response = requests.get(self.url, headers=ua.headers.get())
+        except requests.exceptions.RequestException as e:
+            raise SystemExit(e)
+        # inspect(response)   
+        return response.text
+    
+    def get_soup(self):
+        response = self.make_request()
+        soup = BeautifulSoup(response, 'html.parser')            
+        return soup
+    
+    # def get_meta(self):
+    #     html = self.get_soup()
+    #     metadata = {
+    #     "title": get_title(html),
+    #     "description": get_description(html),
+    #     "image": get_image(html),
+    #     "favicon": get_favicon(html, url),
+    #     "theme_color": get_theme_color(html),
+    # }
+    # return metadata
+        
+    
+    def get_og_meta(self):
+        # works with ei url
+        soup = self.get_soup()
+      
+        site_name = soup.find("meta", property="og:site_name").get('content')
+        type = soup.find("meta", property="og:type").get('content')
+        title = soup.find("meta", property="og:title").get('content')
+        url = soup.find("meta", property="og:url").get('content')
+        description = soup.find("meta", property="og:description").get('content')
+        updated_type = soup.find("meta", property="og:updated_time").get('content')
+        image = soup.find("meta", property="og:image").get('content')
+        print(site_name)
+        print(type)
+        print(title)
+        print(url)
+        print(description)
+        print(updated_type)
+        print(image)
+        
+        # return meta
+    
+    def print_pretty_soup(self):
+        soup = self.get_soup()
+        rprint(soup)
+        # rprint(soup.prettify)
+    
+if __name__ == "__main__":
+    x = GetSoup(url=link)
+    meta = x.get_og_meta()
+    # for z in meta:
+    #     rprint(z.get('content'))
+    # inspect(meta)
 
 
-for poo in page_soup_list:
-    print(poo)
+
+# <meta property="og:image" content="https://electronicintifada.net/sites/default/files/styles/medium/public/pictures/picture-15-1457643566.jpg?itok=2gPGktTn" />
+
+
+# <meta name="description" content="Tehran and Tel Aviv both claim tactical success over limited attack." />
+# <meta name="generator" content="bangpound" />
+# <link rel="canonical" href="https://electronicintifada.net/blogs/maureen-clare-murphy/uneasy-equilibrium-after-israel-strikes-iran" />
+# <link rel="shortlink" href="https://electronicintifada.net/node/49671" />
+
+
+
+# x.make_request()
+# soup = x.get_soup()
+# title = soup.find("meta", property="og:title")
+# url = soup.find("meta", property="og:url")
+
+# print(title)
+# print(url)
+
+# soup = x.get_soup()  
+# inspect(soup)
+
+
+
+# for poo in page_soup_list:
+#     print(poo)
 
 
 # def strain():

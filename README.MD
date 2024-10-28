@@ -33,9 +33,14 @@ After data model changes in models.py, you must run the three step migration pro
 
 - [realpython.com | Customize the Django Admin With Python](https://realpython.com/customize-django-admin-python/)
 
-
 ## Python Libraries Utilized or Planned
 
+- [Neo4j for Django Developers](https://neo4j.com/developer-blog/neo4j-for-django-developers/)
+
+- [Requests for Humans](https://docs.python-requests.org/en/latest/index.html)
+- [Beautiful Soup](https://beautiful-soup-4.readthedocs.io/en/latest/#making-the-soup)
+  - [soup cheatsheet](https://proxiesapi.com/articles/the-complete-beautifulsoup-cheatsheet-with-examples)
+- [ua-generator | User-Agent Generator](https://pypi.org/project/ua-generator/)
 - [Django Documentation](https://docs.djangoproject.com/en/5.1/)
 - [Django REST framework](https://www.django-rest-framework.org/)
 - [Djoser Documentation | Web Token Authenticatin](https://djoser.readthedocs.io/en/latest/getting_started.html)
@@ -44,6 +49,17 @@ After data model changes in models.py, you must run the three step migration pro
   - [Django-Countries](https://pypi.org/project/django-countries/)
   - [Django-Cities](https://github.com/coderholic/django-cities)
   - [Django-Cities-Light](https://github.com/yourlabs/django-cities-light)
+
+## Graph DB
+
+### Reading Graph Meta Data
+- [Open Graph Protocol](https://ogp.me/)
+- [PyOpenGraph | Github](https://github.com/minichiello/PyOpenGraph)
+
+### Graph DB engines
+- [Neo4j](https://neo4j.com/)
+  - [Neo4j Tutorial](https://www.datacamp.com/tutorial/neo4j-tutorial)
+- [CogDB](https://cogdb.io/)
 
 
 ## Apps
@@ -95,4 +111,4 @@ After data model changes in models.py, you must run the three step migration pro
   - Citation links from main body of article
 - Parent > Child Relationships between article and citation links
   - Article and Citation Links
-
+- [text](https://www.aljazeera.com/news/2020/12/5/case-173-egypt-closes-decade-old-ngo-foreign-funding-case)
