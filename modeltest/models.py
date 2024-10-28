@@ -61,6 +61,17 @@ class Language(models.Model):
     
     def __str__(self):
         return self.iso + ' : ' + self.language
+
+class ArticleLink(models.Model):
+    url = models.URLField(unique=True)
+    response = models.JSONField(null=True)
+    models.DateTimeField("date published")
+    
+    
+class ArticleLinkMeta(models.Model):
+    articlelink = models.ForeignKey(ArticleLink, on_delete=models.CASCADE)
+    key = models.CharField(max_length = 50)
+    value = models.CharField(max_length = 255)
     
     
 class OrganizationLanguage(models.Model):
@@ -118,6 +129,8 @@ class Link(models.Model):
     
     class Meta:
         ordering = ("organization", "url")
+        
+
     
     
 # class Link(models.Model):
