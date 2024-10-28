@@ -30,3 +30,14 @@
   - [Github | DevDhira | Linktree Clone](https://github.com/DevDhira/linktree-clone)
 
 - [Flask | Linktree-Clone](https://github.com/ruantmelo/linktree-clone)
+
+<!-- 
+The following paths are ignored by one of your .gitignore files:
+account/__pycache__
+account/migrations/__pycache__
+config/__pycache__
+sitesearch/__pycache__
+sitesearch/migrations/__pycache__
+hint: Use -f if you really want to add them.
+hint: Turn this message off by running
+hint: "git config advice.addIgnoredFile false" -->
