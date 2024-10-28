@@ -11,6 +11,8 @@ urlpatterns = [
 
     # ex: /polls/
     path("", views.index, name="index"),
+    path("getter/", views.getter, name="getter"),    
+    path("formtest/", views.formtest, name="formtest"),
     # path("search", views.search, name="search"),  
     
     

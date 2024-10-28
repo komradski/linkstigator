@@ -2,6 +2,7 @@ import random
 import string
 import sys
 
+from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.db import transaction
 from django.views import generic
@@ -18,6 +19,8 @@ from django.views.generic import TemplateView
 from .models import Link, LinkGroup
 from .serializers import LinkSerializer, LinkGroupSerializer
 
+from sitesearch.forms import LinkForm
+
 # class SiteSearchIndexView(generic.ListView):
 #     template_name = "sitesearch/index.html"
 #     context_object_name = "latest_organization_list"
@@ -27,6 +30,35 @@ def index(request):
     search_links = Link.objects.order_by("title")
     context = {"search_links": search_links}
     return render(request, "sitesearch/index.html", context)
+
+
+def getter(request):
+    search_links = Link.objects.order_by("title")
+    context = {"search_links": search_links}
+    return render(request, "sitesearch/getter.html", context)
+
+
+def formtest(request, pk):
+    link = Link.objects.get(pk=pk)
+    form = LinkForm()
+    if request.method == "POST":
+        form = LinkForm(request.POST)
+        if form.is_valid():
+            link = Link(
+                url=form.cleaned_data["url"],                
+                link=link,
+            )
+            link.save()            
+            return HttpResponseRedirect(request.path_info)
+
+    links = Link.objects.filter(link=link)
+    context = {
+        "link": link,
+        "links": links,
+        "form": LinkForm(),
+    }
+    
+    return render(request, "sitesearch/formtest.html", context)
 
 # def search(request):
 #     search_links = Link.objects.order_by("title")

@@ -15,4 +15,11 @@ def index(request):
     return render(request, "modeltest/index.html", context)
 
 
+# def get_link_object():
+#     links = Link.objects.all().order_by("title")
+#     # context = {"search_links": search_links}
+#     return links
 
+
+# for link in links():
+#     print(link.url)

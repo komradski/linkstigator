@@ -1,0 +1,95 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<script type="text/javascript">
+    function doPopAll(PopAll) {
+        var pop = document.getElementById("PopAll");
+        
+        for (j = 1; j <= 100; j++) {
+            if (j < 10) { j = "" + j.toString(); }
+            else { j = j.toString(); }
+            console.log(j)
+            item = document.getElementById("Search" + j);
+            if (item != null) { item.value = pop.value; }
+        }
+    }
+
+    function doClearAll(ClearAll,PopAll) {
+        var pop = document.getElementById("ClearAll");
+        var popitem = document.getElementById("PopAll");
+        for (j = 1; j <= 100; j++) {
+            if (j < 10) { j = "" + j.toString(); }
+            else { j = j.toString(); }
+            console.log(j)
+            item = document.getElementById("PopAll")
+            ;
+            if (item != null) { item.value = null; }                    
+            item = document.getElementById("Search" + j)
+                ;
+            if (item != null) { item.value = null; }
+        }
+        // if (popitem != null) { popitem.value = null; }
+    }
+
+
+function doSearch(Url, Search){
+    window.open(Url + Search, 'Search01window');
+}        
+
+
+
+{% if search_links %}     
+function doall(all){   
+{% for link in search_links.all %}
+    window.open("{{ link.url }}" + all, "{{ link.id }}");
+{% endfor %} 
+}
+{% endif %}
+
+
+</script>
+<div class="row m-5" >
+    <div class="col-2">
+    </div>
+</div>
+<div class="container">
+    {% comment %} <form class="row m-1" onsubmit="doPopAll(this.PopAll.value); return false;">    
+    
+        <div class="col-4">
+            <input type="search" class="form-control" id="PopAll" name="PopAll" placeholder="Search Terms" aria-label="Search Terms" aria-describedby="PopAllButton">
+        </div>
+        <div class="col-2">
+            <button class="btn btn-secondary" type="submit" id="PopAllButton" style="width:340px">Populate All</button>
+        </div>    
+    </form> {% endcomment %}
+
+    {% if search_links %}        
+        {% for link in search_links.all %}
+
+            <form class="row m-1" onsubmit="doSearch(this.UrlString.value, this.Search{{ link.id }}.value); return false;">
+                {% comment %} <div class="col-4">
+                    <input type="text" class="form-control" id="Search{{ link.id }}" name="Search{{ link.id }}" placeholder="" aria-label="" aria-describedby="SearchButton">
+                    <input type="hidden" id="UrlSring" name="UrlString" value="{{ link.url }}">
+                </div> {% endcomment %}
+                <div class="col-2">
+                    <button class="btn btn-outline-secondary" type="submit" id="SearchButton" style="width:340px">{{ link.title }}</button> 
+                </div>
+            </form>
+        
+        {% endfor %} 
+        
+    {% else %}
+        <p>Nothing available.</p>
+    {% endif %}
+
+    {% comment %} <form class="row m-1" onsubmit="doall(this.all.value); return false;">
+        <div class="col-4">
+            <input type="text" class="form-control" id="Search99" name="all" placeholder="" aria-label="" aria-describedby="SearchAllButton">        
+        </div>
+        <div class="col-2">                          
+            <button class="btn btn-primary" type="submit" id="SearchAllButton" style="width:340px">Submit All</button>                            
+        </div>
+    </form>        {% endcomment %}
+</div>
+{% endblock content %}
