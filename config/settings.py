@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'account',
     'rest_framework',
     'rest_framework.authtoken',
+    # 'django_neomodel',
     'djoser',
     # 'corsheaders',
     'bootstrap5'    
