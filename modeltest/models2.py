@@ -2,9 +2,14 @@
 from django.db import models
 from django.conf import settings
 
-from django_countries.fields import CountryField
+# from django_countries.fields import CountryField
 # Create your models here.
 
+
+class DomainLink(models.Model):
+    url = models.URLField(unique=True)
+    response = models.JSONField(null=True)
+    models.DateTimeField("date published")
 
 
 class ArticleLink(models.Model):
