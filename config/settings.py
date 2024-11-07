@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'django_neomodel',
     'neotest',    
     'sitesearch',
-    'modeltest',    
+    'modeltest',
+    # 'metalinks'  
     'account',
     'rest_framework',
     'rest_framework.authtoken',

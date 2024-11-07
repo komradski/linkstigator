@@ -25,11 +25,9 @@ class Domain(models.Model):
         return self.name    
 
 class Article(models.Model):
-    title = models.CharField(max_length=256)
     url = models.URLField(unique=True)
     json_response = models.JSONField(null=True)
-    models.DateTimeField("date published")
-    
+    models.DateTimeField("date published")    
         
 class ArticleMeta(models.Model):
     article = models.ForeignKey(Article, on_delete=models.CASCADE)

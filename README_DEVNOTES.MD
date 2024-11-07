@@ -15,7 +15,7 @@
 
 ### Create the site-search app
 
-- `python manage.py startapp sitesearch`-
+- `python manage.py startapp sitesearch`
 
 ## Examples
 
@@ -25,6 +25,7 @@
 - [Login-Logout Tutorials](https://learndjango.com/tutorials/django-login-and-logout-tutorial)
 
 ### Link-Tree Clones
+
 - [Django | Pylos7 | linktree-clone](https://github.com/Pylos7/linktree-clone)
 - [Complete Linktree Clone with Django and React JS (Full Tutorial) | Django | ReactJs | Tailwind CSS](https://www.youtube.com/watch?v=9eXf2X9LuyU)
   - [Github | DevDhira | Linktree Clone](https://github.com/DevDhira/linktree-clone)

@@ -18,8 +18,7 @@ class LinkGroup(models.Model):
     def __str__(self):
         return self.name
 
-class Link(models.Model):
-    title = models.CharField(max_length=255)
+class Link(models.Model):    
     url = models.URLField(unique=True)
     url_suffix = models.CharField(max_length=50, null=True, blank=True)
     response = models.JSONField(null=True)
@@ -28,6 +27,10 @@ class Link(models.Model):
 
     def __str__(self):
         return self.title
+    
+  
+    
+    
     
     
 # class Link(models.Model):
